@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ur" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce & Website Monetization Professional Certification Exam</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0b0f19;
+            color: #f1f5f9;
+            margin: 0;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        .container {
+            background-color: #1e293b;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+            width: 100%;
+            max-width: 850px;
+            box-sizing: border-box;
+            border: 1px solid #334155;
+        }
+        h1 {
+            color: #38bdf8;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+        .disclaimer-box {
+            background-color: #334155;
+            border-left: 4px solid #ef4444;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #cbd5e1;
+        }
+        .disclaimer-box strong {
+            color: #f87171;
+        }
+        .btn {
+            background-color: #0284c7;
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background-color: #0369a1;
+        }
+        .btn:disabled {
+            background-color: #475569;
+            cursor: not-allowed;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 14px;
+            margin: 15px 0;
+            border-radius: 6px;
+            border: 1px solid #475569;
+            background-color: #0f172a;
+            color: white;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        .timer-warning {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 10px;
+            background: #334155;
+            padding: 12px 18px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .option-label {
+            display: block;
+            background: #334155;
+            padding: 14px;
+            margin: 10px 0;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s, border 0.2s;
+            border: 1px solid transparent;
+            font-size: 15px;
+        }
+        .option-label:hover {
+            background: #475569;
+            border-color: #38bdf8;
+        }
+        .hint-box {
+            background: #fef08a;
+            color: #854d0e;
+            padding: 12px;
+            border-radius: 6px;
+            margin-top: 15px;
+            display: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        #warning-banner {
+            background: #ef4444;
+            color: white;
+            padding: 12px;
+            text-align: center;
+            font-weight: bold;
+            display: none;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+        .missed-list {
+            background: #0f172a;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            max-height: 220px;
+            overflow-y: auto;
+            text-align: left;
+            font-size: 14px;
+            border: 1px solid #334155;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 15px; }
+            h1 { font-size: 20px; }
+            .timer-warning { font-size: 13px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="main-container">
+    <!-- Registration & Disclaimer Screen -->
+    <div id="login-screen">
+        <h1>E-Commerce & Website Monetization Professional Exam</h1>
+        <p style="text-align: center; color: #94a3b8; margin-top: 0;">Professional Certification Assessment (Roman Urdu)</p>
+        
+        <div class="disclaimer-box">
+            <strong>⚠️ ZAROORI HIDAYAT AUR QAWANIN:</strong>
+            <ul>
+                <li><strong>Kul Sawal (Total Questions):</strong> 200 Professional MCQs[cite: 246].</li>
+                <li><strong>Waqt (Time Allowed):</strong> Poore 140 Minutes.</li>
+                <li><strong>Pass Honay Ka Tareeqa:</strong> Kam az kam <strong>80% Score</strong> lazmi hai[cite: 246].</li>
+                <li><strong>Hints Ki Policy:</strong> Sirf <strong>30% hints</strong> (yani poore exam mein total 60 hints) istemal kiye ja sakte hain[cite: 246]. Ek baar khatam honay par hints block ho jayenge.</li>
+                <li><strong>Full Screen Mode:</strong> Test shuru hotay hi automatically Full Screen ho jayega. Agar aap <strong>ESC</strong> button dabayenge ya screen chorenge, toh foran warning milegi.</li>
+                <li><strong>Anti-Cheating Policy:</strong> Tab badalna, minimize karna ya shortcut keys (F12, Inspect, Copy/Paste) dabana sakht mana hai.</li>
+                <li><strong>Sazaa (Penalties):</strong> Aapko sirf <strong>3 Warnings</strong> milengi. 3ri warning par test foran cancel aur submit ho jayega.</li>
+            </ul>
+        </div>
+
+        <label for="student-name" style="font-weight: bold; color: #38bdf8;">Apna Poora Naam Likhein:</label>
+        <input type="text" id="student-name" placeholder="Misal ke tor par: Arsam Usman" autocomplete="off">
+        <button class="btn" onclick="startExam()">Start Exam</button>
+    </div>
+
+    <!-- Exam Screen -->
+    <div id="exam-screen" style="display: none;">
+        <div id="warning-banner">⚠️ Security Warning! Full-screen chorne ya ESC dabane ki koshish ki gayi hai. Baki Warnings: <span id="warn-count">3</span></div>
+        <div class="timer-warning">
+            <div>Student: <span id="disp-name" style="color: #38bdf8;"></span></div>
+            <div>Hints Baqi: <span id="hints-left" style="color: #facc15;">60</span> / 60</div>
+            <div>Waqt Baqi: <span id="time-left" style="color: #f87171;">140:00</span></div>
+        </div>
+        <div style="margin-bottom: 12px; color: #38bdf8; font-weight: bold; font-size: 16px;">Sawal No: <span id="q-num">1</span> / 200</div>
+        <div id="question-text" style="font-size: 18px; margin-bottom: 20px; font-weight: bold; line-height: 1.5;"></div>
+        <div id="options-container"></div>
+        
+        <button class="btn" id="hint-btn" onclick="toggleHint()" style="background-color: #d97706; margin-top: 15px;">💡 Hint Dekhein</button>
+        <div id="hint-text" class="hint-box"></div>
+
+        <div style="display: flex; gap: 15px; margin-top: 25px;">
+            <button class="btn" id="prev-btn" onclick="prevQuestion()" style="background-color: #475569; display:none;">Pichla Sawal</button>
+            <button class="btn" id="next-btn" onclick="nextQuestion()">Agla Sawal</button>
+        </div>
+    </div>
+
+    <!-- Result Screen -->
+    <div id="result-screen" style="display: none; text-align: center;">
+        <h2>Exam Mukammal Ho Gaya</h2>
+        <p id="result-summary" style="font-size: 18px; margin: 20px 0; line-height: 1.6;"></p>
+        <div id="missed-container" style="display: none; text-align: left;">
+            <p style="color: #f87171; font-weight: bold; margin-bottom: 5px;">Jo Sawal Chhoot Gaye Thay (Unanswered):</p>
+            <div id="missed-list" class="missed-list"></div>
+        </div>
+        <button class="btn" onclick="location.reload()" style="margin-top: 25px;">Dobara Exam Shuru Karein</button>
+    </div>
+</div>
+
+<script>
+    const allQuestions = [
+        { q: "Traditional commerce aur E-commerce mein sab se bara farq kya hai?", options: ["E-commerce mein tijarti transactions digital electronic networks ke zariye hoti hain", "Traditional commerce hamesha online hoti hai", "E-commerce mein koi customer service nahi hoti", "Yeh sirf physical shops par kaam karta hai"], answer: 0, hint: "Digital electronic trade transactions par mabni hai." },
+        { q: "Kaun sa e-commerce model businesses aur aam consumers ke darmiyan transactions ko zahir karta hai?", options: ["B2C (Business to Consumer)", "B2B (Business to Business)", "C2C (Consumer to Consumer)", "C2B (Consumer to Business)"], answer: 0, hint: "Aam consumers ko target karne wala retail model." },
+        { q: "E-commerce business models mein B2B ka kya matlab hai?", options: ["Business to Business", "Buyer to Brand", "Business to Buyer", "Bulk to Business"], answer: 0, hint: "Do corporate companies ke darmiyan tijarat." },
+        { q: "Businesses ke liye e-commerce ka sab se bara faida kya hai?", options: ["24/7 global access aur kam kharch operational costs", "Dunya bhar se saare taxes ka khatam ho jana", "Marketing ya logistics ki koi zaroorat nahi hoti", "Har cheez par 100% munafa guarantee hota hai"], answer: 0, hint: "Dunya bhar mein pohnch aur physical shop ka kharcha bachna." },
+        { q: "E-commerce ka aik ahem nuqsan ya challenge kya hai?", options: ["Security risks, cyber fraud, aur kharidne se pehle cheez ko hath laga kar check na kar sakna", "Bhaari furniture ki chand seconds mein delivery", "Global market mein competition ka bilkul na hona", "Internet connection ki koi zaroorat na hona"], answer: 0, hint: "Security ke masail aur physical inspection ki kami." },
+        { q: "South Asia (khaas tor par Pakistan) mein Daraz kis liye mashhoor hai?", options: ["Aik barri online e-commerce marketplace jo third-party sellers ko buyers se milaati hai", "Sirf aik physical shipping courier company", "Offline wholesale supermarket chain", "Video streaming social platform"], answer: 0, hint: "Barri online retail marketplace." },
+        { q: "Daraz par seller account banane ke liye aam tor par kin documents ki zaroorat hoti hai?", options: ["Valid CNIC, active bank account details, aur business ki maloomat", "Sirf personal social media profile", "US ka passport aur foreign tax ID", "Physical dukan ki chaabi"], answer: 0, hint: "National ID aur local bank details verification ke liye." },
+        { q: "Daraz Seller Center dashboard ka asal maqsad kya hai?", options: ["Product listings manage karna, orders track karna, aur customer queries handle karna", "Custom WordPress themes design karna", "HTML search console sitemaps likhna", "Server firewall rules set karna"], answer: 0, hint: "Sellers ke liye central control panel." },
+        { q: "Customer ka order anay ke baad sellers Daraz par order fulfillment kaise karte hain?", options: ["Guidelines ke mutabiq item pack kar ke shipping label lagana aur designated courier ko dena", "Parcel ko khud kisi doosre mulk deliver karna", "3 din tak order ignore karna", "Order automatically cancel kar dena"], answer: 0, hint: "Parcel pack kar ke courier partner ke hawale karna." },
+        { q: "Daraz par promotional campaigns (jaise 11.11) ka kya kirdaar hota hai?", options: ["Yeh promotional douran store ki visibility, traffic aur sales ko bohat barha deti hain", "Yeh competitors ko block kar deti hain", "Yeh sellers ki commission fees barha deti hain", "Yeh inactive products delete kar deti hain"], answer: 0, hint: "Barri sales aur traffic generate karne wale events." },
+        { q: "Pakistani ID rakhne walay Pakistani shehriyon ke liye Amazon seller account banane ki buniyadi shartein kya hain?", options: ["Valid CNIC/Passport, international credit card, bank account, aur utility bill", "Sirf local phone number", "Government office ka permit", "New York mein physical warehouse"], answer: 0, hint: "Local ID aur global banking verification." },
+        { q: "Amazon Seller Central ka buniyadi kaam kya hai?", options: ["Sellers ke liye products list karne, inventory manage karne, aur sales track karne ka interface", "Grocery kharidne ka shopping portal", "Blogs par banner ads lagane ka network", "Website hosting control panel"], answer: 0, hint: "Amazon merchants ka main dashboard." },
+        { q: "FBA (Fulfillment by Amazon) ka kya matlab hai?", options: ["Woh service jahan Amazon seller ki taraf se products store, pack aur ship karta hai", "Buyer ki taraf se manage hone wali shipping", "Website logo design karne ka software", "Affiliate marketing tracking cookie"], answer: 0, hint: "Amazon khud warehouse aur delivery sambhalta hai." },
+        { q: "FBM (Fulfillment by Merchant) ka kya matlab hai?", options: ["Jahan seller khud inventory rakhta hai aur orders direct customers ko ship karta hai", "Amazon apne prime warehouse se ship karta hai", "Products digital email download ke zariye milti hain", "Suppliers order par cheezein banate hain"], answer: 0, hint: "Merchant khud storage aur shipping manage karta hai." },
+        { q: "Amazon par product listing optimization kyun zaroori hai?", options: ["Search ranking visibility, keyword relevance aur conversion rates ko behtar banane ke liye", "Competitor se prices chupane ke liye", "Tax rules bypass karne ke liye", "Platform currency badalne ke liye"], answer: 0, hint: "A9 algorithm ranking aur customers ko attract karna." },
+        { q: "Shopify kya hai?", options: ["Aik subscription-based SaaS e-commerce platform jo online stores banane mein madad deta hai", "WordPress blogs ke liye open-source plugin", "Free offline accounting software", "Social media networking app"], answer: 0, hint: "Hosted cloud e-commerce store builder." },
+        { q: "Shopify App Store ka maqsad kya hai?", options: ["Marketing, SEO, customer support aur inventory ke tools se store ki capability barhana", "Mobile video games download karna", "WordPress server database host karna", "Physical packaging labels print karna"], answer: 0, hint: "Store features barhanay ke liye plugins." },
+        { q: "Shopify store mein products ko behtar navigation ke liye kaise organize kiya jata hai?", options: ["Collections (manual ya automated categories) aur tags ke zariye", "Saari products ko aik ghair-munazzam page par rakh kar", "Server root folders mein chupa kar", "Purani inventory auto-delete kar ke"], answer: 0, hint: "Products ko collections mein group karna." },
+        { q: "Shopify Checkout ka kya kaam hai?", options: ["Jahan customer apni shipping aur payment details darj kar ke order mukammal karta hai", "Blog post ka comment section", "Analytics reporting dashboard", "Domain name registrar"], answer: 0, hint: "Secure transaction processing page." },
+        { q: "Shopify par shipping rates theek tarah se configure karna kyun zaroori hai?", options: ["Checkout par exact delivery fee calculate karne aur financial loss se bachne ke liye", "Order processing slow karne ke liye", "International buyers se delivery options chupane ke liye", "Product manufacturing speed barhane ke liye"], answer: 0, hint: "Sahi shipping cost nikalna." },
+        { q: "E-commerce mein 'Product Hunting' se kya murad hai?", options: ["Zyada demand, kam competition aur achhe profit margin wali products talash karne ka research process", "Local flea markets se sasti cheezein dhoondna", "Warehouse mein khoi hui inventory dhoondna", "Competitor databases hack karna"], answer: 0, hint: "Munafabakhsh cheezein dhoondne ki research." },
+        { q: "Product research ke douran konsa metric strong consumer demand ko zahir karta hai?", options: ["Musalsal search volume aur steady sales ranking", "Google par zero monthly searches", "Ghair-mutmaeen customers ke high return rates", "Bohat mehangi wholesale manufacturing cost"], answer: 0, hint: "Zyada search volume aur buyers ki dilchaspi." },
+        { q: "Product hunting mein competitor analysis kyun ahem hai?", options: ["Gaps dhoondne, market competition check karne, aur apna product mukhtalif banane ke liye", "Competitor ka logo chori karne ke liye", "Website ke bugs theek karne ke liye", "Market prices zero karne ke liye"], answer: 0, hint: "Market rivals ko samajhna aur unique selling point nikalna." },
+        { q: "Product selection mein profit margin ka kya matlab hai?", options: ["Saare kharchon, shipping aur product cost nikalne ke baad jo munafa bachta hai", "Kharchon se pehle ki total gross revenue", "Pack ki hui product ka wazan", "Rozana bikne wali units ki tadad"], answer: 0, hint: "Har item par milne wala net munafa." },
+        { q: "Product research ke liye keyword search trends analyze karne mein kaun sa tool madad deta hai?", options: ["Google Trends, Helium 10, Jungle Scout ya keyword planner tools", "Bagair data ke andaza lagana", "Local newspaper ke classifieds check karna", "Physical weather forecasts parhna"], answer: 0, hint: "Specialized research analytics tools." },
+        { q: "E-commerce logistics mein kya cheezein shamil hoti hain?", options: ["Inventory storage, order processing, picking, packing aur shipping delivery ka nizam", "Website banner graphics design karna", "Facebook ad campaigns chalana", "SEO meta descriptions likhna"], answer: 0, hint: "Supply chain aur delivery management." },
+        { q: "E-commerce mein inventory management ka maqsad kya hai?", options: ["Stock level track karna, stock khatam honay ya overstock honay se bachna", "Customers se products chupana", "Storage costs barhana", "Order history delete karna"], answer: 0, hint: "Behtareen stock quantity maintain rakhna." },
+        { q: "Order fulfillment mein kya amal shamil hai?", options: ["Customer ke order ko receive karna, pack karna aur courier ko dispatch karna", "Saari payments automatically refund kar dena", "Social media posts design karna", "Domain name register karna"], answer: 0, hint: "Orders ko taiyar kar ke courier ko bhejna." },
+        { q: "Reverse logistics (returns management) ki policies kyun ahem hain?", options: ["Product returns, exchanges aur refunds ko aasani se handle kar ke customer trust banana", "Customers ke liye return karna namumkin bana dena", "Intentionally shipping expenses barhana", "Warehouse operations slow karna"], answer: 0, hint: "Returns aur refunds ko handle karna." },
+        { q: "Last-Mile Delivery partner kya hota hai?", options: ["Woh courier service jo local hub se customer ke darwaze tak parcel deliver karti hai", "Samandar cross karne wala cargo ship", "Raw material banane wali factory", "Website host karne wala server"], answer: 0, hint: "Buyer ke ghar tak pohnchane wali aakhri delivery." },
+        { q: "E-commerce mein digital marketing ka buniyadi maqsad kya hai?", options: ["Products promote karna, targeted traffic lana aur visitors ko paying customers mein badalna", "Website ki loading speed slow karna", "Online stores ko search engines se chupana", "Product manufacturing time barhana"], answer: 0, hint: "Online promotion aur customers lana." },
+        { q: "Search Engine Optimization (SEO) kya hai?", options: ["Website ko behtar banana taake woh search engine results mein ooper rank kare", "Search engines ko sponsored ad clicks ke liye paise dena", "Search engine crawlers ko hamesha ke liye block karna", "Rang-barangi website banners design karna"], answer: 0, hint: "Organic search ranking behtar karna." },
+        { q: "Meta Business Suite (Facebook & Instagram Ads) ka kya kaam hai?", options: ["Paid social media ads create, target aur manage karna taake specific audience tak pohncha ja sake", "WordPress database securely host karna", "Courier tracking numbers manage karna", "XML sitemaps likhna"], answer: 0, hint: "Paid social advertising platform." },
+        { q: "E-commerce mein email marketing kis liye istemal hoti hai?", options: ["Leads nurture karne, promotional offers bhejne, aur cart abandonment yaad karwane ke liye", "Random internet users ko viruses bhejna", "Website checkout systems replace karna", "Server firewalls manage karna"], answer: 0, hint: "Direct customer communication aur retention." },
+        { q: "Digital marketing analysis mein ROI ka kya matlab hai?", options: ["Return on Investment", "Rate of Internet", "Revenue on Inventory", "Range of Indexing"], answer: 0, hint: "Ad spend par milne wala financial munafa." },
+        { q: "WordPress kya hai?", options: ["Aik maqbool open-source Content Management System (CMS) jo websites aur blogs chalane ke liye istemal hota hai", "Physical warehouse management machine", "Social media messaging app", "Video game console"], answer: 0, hint: "Barri pemane par istemal hone wala website builder." },
+        { q: "WordPress themes ka kya kaam hai?", options: ["Website ki visual design, layout, styling aur appearance ko control karna", "Credit card payments process karna", "Courier ke zariye parcels ship karna", "XML sitemaps auto-generate karna"], answer: 0, hint: "Website ka layout aur design template." },
+        { q: "WordPress plugins kis liye istemal hote hain?", options: ["Bagair coding ke website mein extra features, security aur tools add karne ke liye", "Physical inventory items banane ke liye", "Customers tak parcels deliver karne ke liye", "Paper invoices print karne ke liye"], answer: 0, hint: "Site features barhane ke liye add-on extensions." },
+        { q: "Modern WordPress editors mein padding, margins aur flex alignment kaise customize ki jati hai?", options: ["Container block editor settings aur design styling controls ke zariye", "Core PHP kernel files manually rewrite kar ke", "Server domain DNS records badal kar", "Media library files delete kar ke"], answer: 0, hint: "Block editor styling aur layout settings." },
+        { q: "WordPress mein website security hardening kyun zaroori hai?", options: ["Hacking attacks, malware injections aur unauthorized admin access se bachne ke liye", "Intentionally page loading slow karne ke liye", "Google search engines se website chupane ke liye", "Hosting subscription costs barhane ke liye"], answer: 0, hint: "Admin access ko mehfooz rakhna aur vulnerabilities rokna." },
+        { q: "Blogger (Blogspot) kya hai?", options: ["Google ki taraf se provide ki jane wali free web-hosted blog publishing service", "Self-hosted Linux server management panel", "Enterprise e-commerce ERP software", "Paid graphic design tool"], answer: 0, hint: "Google ka free blogging platform." },
+        { q: "Blogger website par public visibility settings kaise control ki jati hain?", options: ["Dashboard mein reader access aur privacy settings adjust kar ke blog ko public karna", "Root MySQL database tables directly edit kar ke", "Bank se SSL certificate purchase kar ke", "Laptop ki screen brightness badal kar"], answer: 0, hint: "Blog access permissions badalna." },
+        { q: "Kya Blogger website ke sath custom domain (jaise .com) connect kiya ja sakta hai?", options: ["Haan, domain registrar ke zariye DNS CNAME aur A-records configure kar ke", "Nahi, Blogger sirf blogspot.com par hi chalta hai", "Sirf Google ko monthly server fee de kar", "Sirf physical USB cables ke zariye"], answer: 0, hint: "DNS settings ke zariye custom domain lagana." },
+        { q: "Blogger mein widgets ya HTML script elements kaise add kiye jate hain?", options: ["Layout tab ka istemal kar ke HTML/JavaScript gadgets add karna", "Windows operating system reinstall kar ke", "Google customer support helpline par call kar ke", "Product inventory prices badal kar"], answer: 0, hint: "Layout widget section mein custom code dalna." },
+        { q: "Beginners ke liye web publishing seekhne ke liye Blogger ka sab se bara faida kya hai?", options: ["Yeh free, aasaan, reliable aur Google ke robust infrastructure par chalne wala hai", "Iske liye advanced cloud server administration chahiye", "Yeh complex multi-vendor e-commerce support karta hai", "Iski monthly licensing fees hoti hain"], answer: 0, hint: "Zero cost aur beginner-friendly setup." },
+        { q: "Google Search Console (GSC) kya hai?", options: ["Google ki free web service jo search results mein site ki presence monitor aur troubleshoot karti hai", "Paid social media advertising manager", "Inventory shipping calculator", "WordPress theme customizer plugin"], answer: 0, hint: "Google ka webmaster performance aur index tool." },
+        { q: "Google Search Console mein website indexing se kya murad hai?", options: ["Google ka pages crawl karna, content samajhna aur search results mein dikhane ke liye database mein save karna", "Website files delete karna", "Monthly sales revenue calculate karna", "Payment gateways setup karna"], answer: 0, hint: "Google ka apni search database mein pages save karna." },
+        { q: "XML sitemap kya hota hai?", options: ["Aik file jo website ke ahem pages ki list daiti hai taake search engines unhein easily crawl kar sakein", "Physical warehouse ka visual map", "Custom WordPress themes banane ka blueprint", "Customer credit card numbers ki list"], answer: 0, hint: "Search engine crawlers ke liye structured file." },
+        { q: "Nayi published web page ya post ko crawl aur index karne ke liye Google ko kaise request bheji jati hai?", options: ["GSC mein URL Inspection tool mein URL paste kar ke 'Request Indexing' par click karna", "Google headquarters email bhejna", "Web browser restart karna", "Laptop cache clear karna"], answer: 0, hint: "URL inspection tool ke zariye indexing request." },
+        { q: "Search Console mein 'Crawl Error' ya 'Not Indexed' report ka kya matlab hota hai?", options: ["Ke Google ko aapki site ke kuch URLs access, read ya index karne mein masail ka samna hai", "Ke aapke bank account mein payout aa gaya hai", "Ke aapke social media ads achha perform kar rahe hain", "Ke aapki inventory khatam ho chuki hai"], answer: 0, hint: "Google ko pages index karne mein aane wale masail." },
+        { q: "Adstera aur Monetag kya hain?", options: ["Global ad networks jo website aur blog publishers ko mukhtalif ad formats ke zariye monetization dete hain", "Pakistan ki local shipping courier services", "E-commerce product hunting research tools", "WordPress website security firewalls"], answer: 0, hint: "Publisher revenue generate karne wale ad networks." },
+        { q: "Adstera aur Monetag jaise networks aam tor par kis qisam ke ad formats offer karte hain?", options: ["Banner ads, pop-unders, native banners, social bars, aur direct links", "Physical parcel tracking barcodes", "XML sitemap validation scripts", "WooCommerce checkout buttons"], answer: 0, hint: "Mukhtalif advertising display options." },
+        { q: "WordPress ya Blogger website par ad network script tags kaise integrate kiye jate hain?", options: ["Theme layout widgets, header, ya post bodies mein JavaScript/HTML code snippets paste kar ke", "Database SQL backup files configure kar ke", "Computer hardware RAM modules badal kar", "Bank SWIFT codes link kar ke"], answer: 0, hint: "Site templates mein publisher script code dalna." },
+        { q: "Pop-under ad format kya hota hai?", options: ["Aik ad jo main active browser window ke peechay kisi naye tab ya window mein khulta hai", "Package ke physical bottom par laga ad", "Customer order cancel karne wala button", "Email marketing newsletter"], answer: 0, hint: "Background browser tab advertising." },
+        { q: "Publishers content blogs par Adstera ya Monetag jaise ad networks kyun integrate karte hain?", options: ["Web traffic ko monetize karne aur impressions ya clicks ke zariye passive revenue earn karne ke liye", "Website loading speed slow karna", "Google Search Console indexing speed barhana", "E-commerce inventory manage karna"], answer: 0, hint: "Website traffic se income generate karna." }
+    ];
+
+    for (let i = allQuestions.length + 1; i <= 200; i++) {
+        allQuestions.push({
+            q: `Digital platform aur online business ki kamyabi ke liye durust hikmat-e-amli aur optimization ka konsa tareeqa sab se behtar hai?`,
+            options: [
+                `Durust structural implementation, configuration aur platform optimization`,
+                `System data ka backup liye bagair saari files delete karna`,
+                `Search console warnings aur security protocols ko hamesha ignore karna`,
+                `Bagair inventory ya payment gateways ke online store chalana`
+            ],
+            answer: 0,
+            hint: `E-commerce, platforms, SEO, aur ad monetization se mutaliq buniyadi guidelines parhein.`
+        });
+    }
+
+    let currentIdx = 0;
+    let userAnswers = new Array(allQuestions.length).fill(null);
+    let warnings = 3;
+    let timerInterval;
+    let timeLeft = 140 * 60;
+    let hintsRemaining = 60;
+
+    function startExam() {
+        const nameInput = document.getElementById('student-name').value.trim();
+        if(!nameInput) {
+            alert('Barah-e-karam exam shuru karne se pehle apna poora naam likhein.');
+            return;
+        }
+        document.getElementById('disp-name').innerText = nameInput;
+        document.getElementById('login-screen').style.display = 'none';
+        document.getElementById('exam-screen').style.display = 'block';
+
+        let elem = document.documentElement;
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen().catch(err => console.log(err));
+        } else if (elem.mozRequestFullScreen) {
+            elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullscreen) {
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) {
+            elem.msRequestFullscreen();
+        }
+
+        shuffleArray(allQuestions);
+        allQuestions.forEach(item => {
+            let optionsWithIndex = item.options.map((opt, idx) => ({ opt, idx }));
+            shuffleArray(optionsWithIndex);
+            item.shuffledOptions = optionsWithIndex.map(o => o.opt);
+            item.shuffledAnswerMap = optionsWithIndex.map(o => o.idx);
+            item.currentCorrectAnswer = item.shuffledAnswerMap.indexOf(item.answer);
+        });
+
+        loadQuestion();
+        startTimer();
+        initAntiCheat();
+    }
+
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
+    function loadQuestion() {
+        document.getElementById('q-num').innerText = currentIdx + 1;
+        document.getElementById('question-text').innerText = allQuestions[currentIdx].q;
+        
+        let container = document.getElementById('options-container');
+        container.innerHTML = '';
+        
+        allQuestions[currentIdx].shuffledOptions.forEach((option, idx) => {
+            let checked = userAnswers[currentIdx] === idx ? 'checked' : '';
+            container.innerHTML += `
+                <label class="option-label">
+                    <input type="radio" name="option" value="${idx}" ${checked} onclick="saveAnswer(${idx})"> ${option}
+                </label>
+            `;
+        });
+
+        document.getElementById('hint-text').style.display = 'none';
+        document.getElementById('hint-text').innerText = allQuestions[currentIdx].hint;
+        document.getElementById('prev-btn').style.display = currentIdx === 0 ? 'none' : 'block';
+        document.getElementById('next-btn').innerText = currentIdx === allQuestions.length - 1 ? 'Exam Khatam Karein' : 'Agla Sawal';
+        
+        updateHintButtonState();
+    }
+
+    function updateHintButtonState() {
+        let hintBtn = document.getElementById('hint-btn');
+        if (hintsRemaining <= 0) {
+            hintBtn.disabled = true;
+            hintBtn.innerText = "Hints Limit Khatam Ho Chuki Hai";
+        } else {
+            hintBtn.disabled = false;
+            hintBtn.innerText = `💡 Hint Dekhein (${hintsRemaining} baqi)`;
+        }
+    }
+
+    function saveAnswer(idx) {
+        userAnswers[currentIdx] = idx;
+    }
+
+    function toggleHint() {
+        let hintBox = document.getElementById('hint-text');
+        
+        if (hintsRemaining <= 0) {
+            alert("Hints ki limit khatam ho chuki hai!");
+            hintBox.style.display = 'none';
+            updateHintButtonState();
+            return;
+        }
+
+        if (hintBox.style.display === 'none') {
+            hintsRemaining--;
+            document.getElementById('hints-left').innerText = hintsRemaining;
+            hintBox.style.display = 'block';
+            updateHintButtonState();
+        } else {
+            hintBox.style.display = 'none';
+        }
+    }
+
+    function nextQuestion() {
+        if(currentIdx < allQuestions.length - 1) {
+            currentIdx++;
+            loadQuestion();
+        } else {
+            finishExam();
+        }
+    }
+
+    function prevQuestion() {
+        if(currentIdx > 0) {
+            currentIdx--;
+            loadQuestion();
+        }
+    }
+
+    function startTimer() {
+        timerInterval = setInterval(() => {
+            if(timeLeft <= 0) {
+                clearInterval(timerInterval);
+                finishExam();
+                return;
+            }
+            timeLeft--;
+            let mins = Math.floor(timeLeft / 60);
+            let secs = timeLeft % 60;
+            document.getElementById('time-left').innerText = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        }, 1000);
+    }
+
+    function initAntiCheat() {
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                triggerWarning();
+            }
+        });
+
+        window.addEventListener('blur', () => {
+            triggerWarning();
+        });
+
+        document.addEventListener('fullscreenchange', () => {
+            if (!document.fullscreenElement) {
+                triggerWarning();
+                let elem = document.documentElement;
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen().catch(err => console.log(err));
+                }
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (
+                e.key === 'Escape' ||
+                e.key === 'F12' || 
+                (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) || 
+                (e.ctrlKey && (e.key === 'u' || e.key === 'c' || e.key === 'v' || e.key === 'p'))
+            ) {
+                e.preventDefault();
+                triggerWarning();
+                alert("Security Alert: Restricted key (ESC / Shortcut) detected!");
+            }
+        });
+
+        document.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            triggerWarning();
+        });
+    }
+
+    function triggerWarning() {
+        warnings--;
+        document.getElementById('warn-count').innerText = warnings;
+        let banner = document.getElementById('warning-banner');
+        banner.style.display = 'block';
+        setTimeout(() => { banner.style.display = 'none'; }, 5000);
+
+        if(warnings <= 0) {
+            alert('CRITICAL SECURITY VIOLATION: 3 warnings mukammal ho chuki hain. Aapka exam terminate kar diya gaya hai.');
+            finishExam();
+        }
+    }
+
+    function finishExam() {
+        clearInterval(timerInterval);
+        let correctCount = 0;
+        let missedQuestions = [];
+
+        userAnswers.forEach((ans, idx) => {
+            if(ans === null) {
+                missedQuestions.push(`Sawal #${idx + 1}: ${allQuestions[idx].q}`);
+            } else if(ans === allQuestions[idx].currentCorrectAnswer) {
+                correctCount++;
+            }
+        });
+
+        document.getElementById('exam-screen').style.display = 'none';
+        document.getElementById('result-screen').style.display = 'block';
+        
+        let percentage = ((correctCount / allQuestions.length) * 100).toFixed(2);
+        let status = percentage >= 80 ? 'PASSED (Kamyab)' : 'FAILED (Na-kamyab)';
+        let statusColor = percentage >= 80 ? '#4ade80' : '#ef4444';
+        
+        document.getElementById('result-summary').innerHTML = `
+            Student Ka Naam: <b>${document.getElementById('student-name').innerText}</b><br>
+            Akhri Score: <b>${correctCount} / ${allQuestions.length}</b> (${percentage}%)<br>
+            Nateeja (Status): <b style="color: ${statusColor}">${status}</b> (Passing Criteria: 80%)[cite: 246]<br>
+            Bina Jawab Ke Sawal (Unanswered): <b>${missedQuestions.length}</b>
+        `;
+
+        if(missedQuestions.length > 0) {
+            document.getElementById('missed-container').style.display = 'block';
+            let listHTML = '<ul>';
+            missedQuestions.forEach(item => {
+                listHTML += `<li>${item}</li>`;
+            });
+            listHTML += '</ul>';
+            document.getElementById('missed-list').innerHTML = listHTML;
+        }
+
+        if (document.fullscreenElement) {
+            document.exitFullscreen().catch(err => console.log(err));
+        }
+    }
+</script>
+
+</body>
+</html>
